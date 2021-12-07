@@ -11,6 +11,7 @@
         display: flex;
         justify-content: center;
         margin-top: 10px;
+        
         }
     #place{
         width:500px;
@@ -31,9 +32,12 @@
         <div id="obj"></div>
     </div>
     <script>
-        let obj = document.getElementsByTagName("body")[0];
-        obj.addEventListener("keydown", function my(event) {
-            console.log(event.key);
+        let obj = document.getElementById("obj");
+        let body = document.getElementsByTagName("body")[0];
+        body.addEventListener("keydown", function my(event) {
+            if (event.key == "ArrowDown") { 
+                obj.setAttribute("style", "margin-top: 100px;");
+            }
         });
        
     </script>
