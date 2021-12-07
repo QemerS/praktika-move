@@ -27,22 +27,15 @@
     </style>
 </head>
 <body>
-    <div id="place">
+    <div id="place" >
         <div id="obj"></div>
     </div>
-
     <script>
-        let obj = document.getElementById("obj");
-        var x = event.key;
-        if (x == "ArrowUp") {
-            console.log("up")
-        } else if (x == "ArrowDown") {
-            console.log("down")
-        }else if (x == "ArrowLeft") {
-            console.log("left")
-        }else if (x == "ArrowRight") {
-            console.log("right")
-        }
+        let obj = document.getElementsByTagName("body")[0];
+        obj.addEventListener("keydown", function my(event) {
+            console.log(event.key);
+        });
+       
     </script>
 </body>
 </html>
