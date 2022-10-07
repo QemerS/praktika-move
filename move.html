@@ -33,10 +33,28 @@
     </div>
     <script>
         let obj = document.getElementById("obj");
-        let body = document.getElementsByTagName("body")[0];
-        body.addEventListener("keydown", function my(event) {
-            if (event.key == "ArrowDown") { 
-                obj.setAttribute("style", "margin-top: 100px;");
+        let place = document.getElementById('place');
+        let i = 0;
+        document.addEventListener("keydown", (event) => {
+            if (event.isTrusted && i < (place.offsetHeight)) {
+                switch (event.key) {
+                    case "ArrowDown":
+                        obj.setAttribute("style", `margin-top: ${i}px;`);
+                        i += 5;
+                        break;
+                    case "ArrowUp":
+                        obj.setAttribute("style", `margin-top: ${i}px;`);
+                        i -= 5;
+                        break;
+                    case "ArrowLeft":
+                        obj.setAttribute("style", `margin-left: ${i}px;`);
+                        i += 5;
+                        break;
+                    case "ArrowRight":
+                        obj.setAttribute("style", `margin-left: ${i}px;`);
+                        i -= 5;
+                        break;
+                }
             }
         });
        
