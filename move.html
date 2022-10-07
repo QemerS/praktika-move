@@ -18,12 +18,19 @@
         height: 500px;
         background-color: lightskyblue;
         border: 1px solid black;
+        position: relative;
         }
     #obj{
         width: 50px;
         height: 50px;
         background-color: gray;
         border: 1px solid black;
+
+        /* --move: 0;
+        margin-top: var(--move); */
+        position: absolute;
+        top: 0;
+        left: 0;
         }
     </style>
 </head>
@@ -36,22 +43,22 @@
         let place = document.getElementById('place');
         let i = 0;
         document.addEventListener("keydown", (event) => {
-            if (event.isTrusted && i < (place.offsetHeight)) {
+            if (event.isTrusted && i < 500 && i >= 0) {
                 switch (event.key) {
                     case "ArrowDown":
-                        obj.setAttribute("style", `margin-top: ${i}px;`);
                         i += 5;
+                        obj.style.cssText = `top: ${i}px`;   
                         break;
                     case "ArrowUp":
-                        obj.setAttribute("style", `margin-top: ${i}px;`);
+                        obj.style.cssText = `top: ${i}px`; 
                         i -= 5;
                         break;
                     case "ArrowLeft":
-                        obj.setAttribute("style", `margin-left: ${i}px;`);
+                        obj.style.cssText = `left: ${i}px`; 
                         i += 5;
                         break;
                     case "ArrowRight":
-                        obj.setAttribute("style", `margin-left: ${i}px;`);
+                        obj.style.cssText = `left: ${i}px`; 
                         i -= 5;
                         break;
                 }
