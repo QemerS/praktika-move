@@ -41,25 +41,26 @@
     <script>
         let obj = document.getElementById("obj");
         let place = document.getElementById('place');
-        let i = 0;
+        let myTop = 0;
+        let myLeft = 0;
         document.addEventListener("keydown", (event) => {
-            if (event.isTrusted && i < 500 && i >= 0) {
+            if (event.isTrusted && (myTop|myLeft < 500) && (myTop|myLeft >= 0)) {
                 switch (event.key) {
                     case "ArrowDown":
-                        i += 5;
-                        obj.style.cssText = `top: ${i}px`;   
+                        myTop += 5;
+                        obj.style.top = `${myTop}px`;   
                         break;
                     case "ArrowUp":
-                        obj.style.cssText = `top: ${i}px`; 
-                        i -= 5;
+                        obj.style.top = `${myTop}px`; 
+                        myTop -= 5;
                         break;
                     case "ArrowLeft":
-                        obj.style.cssText = `left: ${i}px`; 
-                        i -= 5;
+                        obj.style.left = `${myLeft}px`; 
+                        myLeft -= 5;
                         break;
                     case "ArrowRight":
-                        obj.style.cssText = `left: ${i}px`; 
-                        i += 5;
+                        obj.style.left = `${myLeft}px`; 
+                        myLeft += 5;
                         break;
                 }
             }
