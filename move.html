@@ -44,7 +44,8 @@
         let myTop = 0;
         let myLeft = 0;
         document.addEventListener("keydown", (event) => {
-            if (event.isTrusted && (myTop|myLeft < 500) && (myTop|myLeft >= 0)) {
+            const myConditions = myTop < 500 && myLeft < 500 && myTop >= 0 && myLeft >= 0;
+            if (event.isTrusted && myConditions) {
                 switch (event.key) {
                     case "ArrowDown":
                         myTop += 5;
@@ -63,6 +64,9 @@
                         myLeft += 5;
                         break;
                 }
+            } else {
+                place.style.border = '5px red solid';
+                place.innerHTML = `<p>Game`;
             }
         });
        
