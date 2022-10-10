@@ -43,8 +43,15 @@
         let place = document.getElementById('place');
         let myTop = 0;
         let myLeft = 0;
+        // learn diff client|offset|scroll Heights and stuff
+        const objHeight = obj.getClientRects()[0].height;
+        const objWidth = obj.getClientRects()[0].width;
+        
+        const myTopMax = place.offsetHeight - objHeight;
+        const myLeftMax = place.offsetWidth - objWidth;
         document.addEventListener("keydown", (event) => {
-            const myConditions = myTop < 500 && myLeft < 500 && myTop >= 0 && myLeft >= 0;
+            const myConditions = myTop < myTopMax && myLeft < myLeftMax && myTop >= 0 && myLeft >= 0;
+            console.log();
             if (event.isTrusted && myConditions) {
                 switch (event.key) {
                     case "ArrowDown":
@@ -66,7 +73,7 @@
                 }
             } else {
                 place.style.border = '5px red solid';
-                place.innerHTML = `<p>Game`;
+                place.innerHTML = `<p>Game over`;
             }
         });
        
